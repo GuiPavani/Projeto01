@@ -7,6 +7,7 @@ package br.com.fatec.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,16 +34,39 @@ public class MontanteJurosSimplesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MontanteJurosSimplesServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MontanteJurosSimplesServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            out.println("<link rel=\'stylesheet\' href=\'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\' integrity=\'sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\' crossorigin=\'anonymous\'>");
+
+            try {
+                
+                DecimalFormat df = new DecimalFormat("0.00");
+                float P = Float.parseFloat(request.getParameter("capital"));
+                double i = Double.parseDouble(request.getParameter("taxa"));
+                double n = Double.parseDouble(request.getParameter("tempo"));
+
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Montante do Juros Simples</title>");
+                out.println("</head>");
+                out.println("<body>");                
+                
+                out.println("<div class='container'>");
+                
+                out.println("<h3>Montante final: R$ " + df.format(P * (1 * (i / 100 * n))) + "<h3>");
+                
+                out.println("<a href='JurosSimplesServlet' class='btn btn-primary'>Voltar</a>");
+                
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
+                
+            } catch (NumberFormatException ex) {
+                
+                out.println("<h2>Você digitou algo diferente de um número</h2>");
+                out.println("<h2>Por favor volte ao Formulário e digite números</h2>");
+                out.println("<a href='JurosSimplesServlet' class='btn btn-primary'>Voltar</a><br>");
+            }
         }
     }
 
