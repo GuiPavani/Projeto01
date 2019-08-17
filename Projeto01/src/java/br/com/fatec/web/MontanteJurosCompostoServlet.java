@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Guilherme
  */
-@WebServlet(name = "MontanteJurosCompostoServlet", urlPatterns = {"/montantejuroscomposto.html"})
+@WebServlet(name = "MontanteJurosCompostoServlet", urlPatterns = {"/montante-juros-composto.html"})
 public class MontanteJurosCompostoServlet extends HttpServlet {
 
     /**
@@ -49,26 +49,28 @@ public class MontanteJurosCompostoServlet extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Montante do Juros Simples</title>");
+                out.println("<title>Montante do Juros Composto</title>");
                 out.println("</head>");
                 out.println("<body>");                
                 
-                out.println("<div class='container'>");
+                    out.println("<div class='col-12'>");
                 
+                        out.println("<a href='juros-composto.html' class='btn btn-primary'>Voltar</a>");
                 
+                        out.println("<h3>Juros Composto:</h3>");                
                 
-                out.println("<a href='JurosSimplesServlet' class='btn btn-primary'>Voltar</a>");
-                
-                out.println("</div>");
-                out.println("<table border = 1>");
-            for (int x=1; x<=n; x++){
-                total = P * Math.pow(1 + i/100,n);
-                out.println("<tr>");
-                out.println("<td>" +x+ "</td>");
-                out.println("<td>" +df.format(total)+ "</td>");
-                out.println("</tr>");
-            }
-            out.println("</table>");
+                        out.println("<table border = 1>");
+                            
+                            for (int x=1; x<=n; x++){
+                            total = P * Math.pow(1 + i/100,x);
+                            out.println("<tr>");
+                            out.println("<td>" +x+ "</td>");
+                            out.println("<td>" +df.format(total)+ "</td>");
+                            out.println("</tr>");
+                            }
+                            
+                        out.println("</table>");
+                    out.println("</div>");
                 out.println("</body>");
                 out.println("</html>");
                 

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Guilherme
  */
-@WebServlet(name = "MontanteJurosSimplesServlet", urlPatterns = {"/MontanteJurosSimplesServlet"})
+@WebServlet(name = "MontanteJurosSimplesServlet", urlPatterns = {"/montante-juros-simples.html"})
 public class MontanteJurosSimplesServlet extends HttpServlet {
 
     /**
@@ -51,11 +51,12 @@ public class MontanteJurosSimplesServlet extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");                
                 
-                out.println("<div class='container'>");
+                out.println("<div class='col-12'>");
                 
-                out.println("<h3>Montante final: R$ " + df.format(P * (1 * (i / 100 * n))) + "<h3>");
+                out.println("<h2>Juros Simples<h2>");
+                out.println("<h4>Montante final: R$ " + df.format(P + P * n *i/100  ) + "<h4>");
                 
-                out.println("<a href='JurosSimplesServlet' class='btn btn-primary'>Voltar</a>");
+                out.println("<a href='juros-simples.html' class='btn btn-primary'>Voltar</a>");
                 
                 out.println("</div>");
                 out.println("</body>");
@@ -65,7 +66,7 @@ public class MontanteJurosSimplesServlet extends HttpServlet {
                 
                 out.println("<h2>Você digitou algo diferente de um número</h2>");
                 out.println("<h2>Por favor volte ao Formulário e digite números</h2>");
-                out.println("<a href='JurosSimplesServlet' class='btn btn-primary'>Voltar</a><br>");
+                out.println("<a href='juros-simples.html' class='btn btn-primary'>Voltar</a><br>");
             }
         }
     }

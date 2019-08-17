@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *dddd
  * @author Guilherme
  */
-@WebServlet(name = "JurosCompostoServlet", urlPatterns = {"/juroscomposto.html"})
+@WebServlet(name = "JurosCompostoServlet", urlPatterns = {"/juros-composto.html"})
 public class JurosCompostoServlet extends HttpServlet {
 
     /**
@@ -43,7 +43,7 @@ public class JurosCompostoServlet extends HttpServlet {
             
             out.println("<div class='container'>");
             
-            out.println("<form action='montantejuroscomposto.html' method='GET'>");           
+            out.println("<form action='montante-juros-composto.html' method='GET'>");           
             
             out.println("<h2>Preencher os campos para Calcular o Juros Composto: </h2>");
             
@@ -55,7 +55,7 @@ public class JurosCompostoServlet extends HttpServlet {
             
             out.println("<input class='btn btn-success'type='submit' value='Cacular'>");
             
-            out.println("<a href='index.html' class='btn btn-primary'>Voltar</a>");            
+            out.println("<a href='home.html' class='btn btn-primary'>Voltar</a>");            
             
             out.println("</form>");            
             out.println("</div>");
