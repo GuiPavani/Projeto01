@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Dante Miguel Alves Colleto
+ * @author Dante
  */
-@WebServlet(urlPatterns = {"/index.html"})
+@WebServlet(urlPatterns = {"/home.html"})
 public class HomeServlet extends HttpServlet {
 
     /**
@@ -31,7 +31,7 @@ public class HomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+            try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
