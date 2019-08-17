@@ -7,6 +7,7 @@ package br.com.fatec.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Guilherme
  */
-@WebServlet(name = "MontanteJurosCompostoServlet", urlPatterns = {"/MontanteJurosCompostoServlet"})
+@WebServlet(name = "MontanteJurosCompostoServlet", urlPatterns = {"/montantejuroscomposto.html"})
 public class MontanteJurosCompostoServlet extends HttpServlet {
 
     /**
@@ -33,16 +34,50 @@ public class MontanteJurosCompostoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MontanteJurosCompostoServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MontanteJurosCompostoServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+               
+            out.println("<link rel=\'stylesheet\' href=\'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\' integrity=\'sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\' crossorigin=\'anonymous\'>");
+
+            try {
+                
+                DecimalFormat df = new DecimalFormat("0.00");
+                float P = Float.parseFloat(request.getParameter("capital"));
+                double i = Double.parseDouble(request.getParameter("taxa"));
+                double n = Double.parseDouble(request.getParameter("tempo"));
+                
+                double total = 0;
+
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Montante do Juros Simples</title>");
+                out.println("</head>");
+                out.println("<body>");                
+                
+                out.println("<div class='container'>");
+                
+                
+                
+                out.println("<a href='JurosSimplesServlet' class='btn btn-primary'>Voltar</a>");
+                
+                out.println("</div>");
+                out.println("<table border = 1>");
+            for (int x=1; x<=n; x++){
+                total = P * Math.pow(1 + i/100,n);
+                out.println("<tr>");
+                out.println("<td>" +x+ "</td>");
+                out.println("<td>" +df.format(total)+ "</td>");
+                out.println("</tr>");
+            }
+            out.println("</table>");
+                out.println("</body>");
+                out.println("</html>");
+                
+            } catch (NumberFormatException ex) {
+                
+                out.println("<h2>Você digitou algo diferente de um número</h2>");
+                out.println("<h2>Por favor volte ao Formulário e digite números</h2>");
+                out.println("<a href='juroscomposto.html' class='btn btn-primary'>Voltar</a><br>");
+            }
         }
     }
 

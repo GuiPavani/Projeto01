@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *dddd
  * @author Guilherme
  */
-@WebServlet(name = "JurosCompostoServlet", urlPatterns = {"/JurosCompostoServlet"})
+@WebServlet(name = "JurosCompostoServlet", urlPatterns = {"/juroscomposto.html"})
 public class JurosCompostoServlet extends HttpServlet {
 
     /**
@@ -33,14 +33,32 @@ public class JurosCompostoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
+        out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet JurosCompostoServlet</title>");            
+            out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">");
+            out.println("<title>Juro Composto</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet JurosCompostoServlet at " + request.getContextPath() + "</h1>");
+            
+            out.println("<div class='container'>");
+            
+            out.println("<form action='montantejuroscomposto.html' method='GET'>");           
+            
+            out.println("<h2>Preencher os campos para Calcular o Juros Composto: </h2>");
+            
+            out.println("Capital Inicial: <input class='container' type='text' name='capital'><br>");
+            
+            out.println("Taxa %: <input class='container' type='text' name='taxa'><br>");
+            
+            out.println("Periodo: <input class='container' type='text' name='tempo'><br><br>");
+            
+            out.println("<input class='btn btn-success'type='submit' value='Cacular'>");
+            
+            out.println("<a href='index.html' class='btn btn-primary'>Voltar</a>");            
+            
+            out.println("</form>");            
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
