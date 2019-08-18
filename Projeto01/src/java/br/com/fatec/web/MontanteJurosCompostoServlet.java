@@ -57,15 +57,24 @@ public class MontanteJurosCompostoServlet extends HttpServlet {
                 
                         out.println("<a href='juros-composto.html' class='btn btn-primary'>Voltar</a>");
                 
-                        out.println("<h3>Juros Composto:</h3>");                
+                        out.println("<h2>Juros Composto:</h2>");                
+                        out.println("<h5>Capital Inicial: R$"+ P +"</h5>");                
+                        out.println("<h5>Taxa: "+i+"%/mes</h5>");                
                 
                         out.println("<table border = 1>");
+                        
+                        out.println("<tr>");
+                        out.println("<th>Parcela</th>");
+                        out.println("<th>Juros</th>");
+                        out.println("<th>montante</th>");
+                        out.println("</tr>");
                             
                             for (int x=1; x<=n; x++){
                             total = P * Math.pow(1 + i/100,x);
                             out.println("<tr>");
                             out.println("<td>" +x+ "</td>");
-                            out.println("<td>" +df.format(total)+ "</td>");
+                            out.println("<td>" + " R$ " +df.format(total-P)+ "</td>");
+                            out.println("<td>" +" R$ "+df.format(total)+ "</td>");
                             out.println("</tr>");
                             }
                             

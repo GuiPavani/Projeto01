@@ -54,7 +54,7 @@ public class MontanteJurosSimplesServlet extends HttpServlet {
                 out.println("<div class='col-12'>");
                 
                 out.println("<h2>Juros Simples<h2>");
-                out.println("<h4>Montante final: R$ " + df.format(P + P * n *i/100  ) + "<h4>");
+                out.println("<h5>Montante final: R$ " + df.format(P + P * n *i/100  ) + "<h5>");
                 
                 out.println("<a href='juros-simples.html' class='btn btn-primary'>Voltar</a>");
                 

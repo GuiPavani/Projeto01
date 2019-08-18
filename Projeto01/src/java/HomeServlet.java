@@ -42,8 +42,8 @@ public class HomeServlet extends HttpServlet {
             out.println("<center>");
             out.println("<br><h1>Programação Orientada a Objetos<br>Projeto 1 - Grupo 2</h1><br>");
             out.println("<b>Dante Colleto</b> (servlet ''home'') <br>"
-                    + "<b>Guilherme Pavani</b> (servlet ''juros simples'')<br>"
-                    + "<b>Rodrigo Veloso</b> (servlet ''juros compostos'')<br><hr> ");
+                    + "<b>Guilherme Pavani</b> (servlet ''juros composto'')<br>"
+                    + "<b>Rodrigo Veloso</b> (servlet ''juros simples'')<br><hr> ");
             out.println("<h2>Aplicação - Juros Simples e Compostos</h2>");
             out.println("<br>Para o Projeto 1 da disciplina POO, foi desenvolvida uma aplicação simples para a realização de juros simples e compostos sobre o valor disponibilizado pelo usuário da aplicação.");
             out.println("<br><br><a href='juros-simples.html'>Cálculo de juros simples</a>"

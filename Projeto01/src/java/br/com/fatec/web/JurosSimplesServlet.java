@@ -46,11 +46,11 @@ public class JurosSimplesServlet extends HttpServlet {
             
             out.println("<form action='montante-juros-simples.html' method='GET'>");           
             
-            out.println("<h2>Preenchar os campos para Calcular o Juros Simples: </h2>");
+            out.println("<h2>Preencha os campos para Calcular o Juros Simples: </h2>");
             
             out.println("Capital Inicial: <input class='container' type='text' name='capital'><br>");
             
-            out.println("Taxa %: <input class='container' type='text' name='taxa'><br>");
+            out.println("Taxa em %: <input class='container' type='text' name='taxa'><br>");
             
             out.println("Periodo: <input class='container' type='text' name='tempo'><br><br>");
             
